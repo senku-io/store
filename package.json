@@ -1,0 +1,26 @@
+{
+    "name": "store",
+    "version": "0.1.0",
+    "description": "The Bookshelf. The \"Single Source of Truth\" for all human knowledge.",
+    "main": "index.js",
+    "scripts": {
+        "setup:store": "node ."
+    },
+    "keywords": [
+        "senku.io",
+        "senku-io",
+        "senku-io/store",
+        "library",
+        "knowledge",
+        "store",
+        "db"
+    ],
+    "author": "Joyal George K J",
+    "license": "MIT",
+    "packageManager": "pnpm@10.28.1",
+    "homepage": "https://github.com/senku-io",
+    "repository": {
+        "type": "github",
+        "url": "https://github.com/senku-io/store"
+    }
+}
