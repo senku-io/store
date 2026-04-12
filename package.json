@@ -2,9 +2,9 @@
     "name": "store",
     "version": "0.1.0",
     "description": "The Bookshelf. The \"Single Source of Truth\" for all human knowledge.",
-    "main": "index.js",
     "scripts": {
-        "setup:store": "node ."
+        "setup:base": "node scripts/setup-base.mjs",
+        "generate:atlas": "node scripts/generate-atlas.mjs"
     },
     "keywords": [
         "senku.io",
