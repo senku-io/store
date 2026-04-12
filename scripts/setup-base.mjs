@@ -1,13 +1,22 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { exit } from "process";
+import config from "../config.json" with { type: "json" };
 
-let { current_base: CURRENT_BASE } = require("./config.json");
-const { exit } = require("process");
 let NEW_BASE = process.argv[2];
+
+if (!NEW_BASE) {
+    console.log(
+        "New base path is required!\nRun command that should end with new base path/url!",
+    );
+    exit();
+}
 
 if (NEW_BASE[NEW_BASE.length - 1] !== "/") {
     NEW_BASE += "/";
 }
+
+const CURRENT_BASE = config.current_base;
 
 function processFile(filePath) {
     let content = fs.readFileSync(filePath, "utf-8");
