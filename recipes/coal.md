@@ -1,7 +1,7 @@
 ---
 id: rec_charcoal
 name: coal
-type: metal
+type: material
 
 requires:
   - id: res_wood
@@ -35,6 +35,11 @@ hazards:
 
 measurement:
   mode: proportional
+
+keywords:
+  - coal
+  - charcoal
+  - carbon
 ---
 
 # Charcoal
