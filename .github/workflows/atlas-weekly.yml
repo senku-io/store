@@ -37,6 +37,7 @@ jobs:
 
           git add atlas.json
 
-          git diff --cached --quiet || git commit -m "chore: weekly atlas rebuild"
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: weekly atlas rebuild"
 
           git push
