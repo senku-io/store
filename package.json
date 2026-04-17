@@ -22,5 +22,8 @@
     "repository": {
         "type": "github",
         "url": "https://github.com/senku-io/store"
+    },
+    "devDependencies": {
+        "gray-matter": "^4.0.3"
     }
 }
