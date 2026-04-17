@@ -1,31 +1,58 @@
-import { spawn } from "child_process";
+import { readdirSync, readFileSync, statSync, writeFileSync } from "fs";
+import ATLAS from "../atlas.json" with { type: "json" };
+import matter from "gray-matter";
+import { join } from "path";
 
-const changes = spawn("git", [
-    "diff",
-    "--name-status",
-    "origin/develop...HEAD",
-]);
+const config = {
+    version: (ATLAS?.version ?? 0) + 1,
+    generated_at: new Date().toISOString(),
+    nodes: {},
+};
 
-changes.stdout.on("data", (data) => {
-    const refined = String(data).trim().split(/\s+/);
-    if (refined.length < 1) return new Error("Failed to find any changes");
+function processFile(file) {
+    const md = readFileSync(file, { encoding: "utf-8" });
+    const { data } = matter(md);
 
-    const [action, file, ...others] = refined;
+    const unique = file
+        .trim()
+        .replaceAll(".md", "")
+        .split("/")
+        .slice(1)
+        .join("-");
 
-    if (file.includes("recipes") && file.includes(".md")) {
-        extractdata(file);
-        switch (action) {
-            case "A":
-                createNewAtlasEntry();
-                break;
-            case "M":
-                updateAtlasEntry();
-                break;
-            case "D":
-                deleteAtlasEntry();
-                break;
-            default:
-                break;
+    if (
+        !data.type ||
+        !data.keywords ||
+        !data.name ||
+        typeof data.type !== "string" ||
+        typeof data.name !== "string" ||
+        !Array.isArray(data.keywords)
+    ) {
+        console.log("Something went wrong in ", file);
+        return;
+    }
+
+    config.nodes = {
+        ...config.nodes,
+        [unique]: {
+            path: file,
+            name: data.name,
+            type: data.type,
+            keywords: data.keywords,
+        },
+    };
+}
+
+function walk(dir) {
+    for (const file of readdirSync(dir)) {
+        const full = join(dir, file);
+        if (statSync(full).isDirectory()) walk(full);
+        else if (full.endsWith(".md")) {
+            processFile(full);
         }
     }
-});
+}
+
+walk("./recipes");
+
+writeFileSync(join("./", "atlas.json"), JSON.stringify(config, null, 4), {encoding: "utf-8"});
