@@ -58,7 +58,7 @@ jobs:
           --body "Automated atlas refresh." \
           --base develop \
           --reviewer joyalgeorgekj \
-          --lable chore \
+          --label chore \
           --assignee @joyalgeorgekj
           --head $BRANCH || echo "PR may already exist"
         env:
