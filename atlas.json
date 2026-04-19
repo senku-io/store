@@ -1,2 +1,16 @@
 {
+    "version": 1,
+    "generated_at": "2026-04-19T11:15:25.695Z",
+    "nodes": {
+        "coal": {
+            "path": "recipes/coal.md",
+            "name": "coal",
+            "type": "material",
+            "keywords": [
+                "coal",
+                "charcoal",
+                "carbon"
+            ]
+        }
+    }
 }
