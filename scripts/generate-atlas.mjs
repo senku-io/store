@@ -1,10 +1,9 @@
 import { readdirSync, readFileSync, statSync, writeFileSync } from "fs";
-import ATLAS from "../atlas.json" with { type: "json" };
 import matter from "gray-matter";
 import { join } from "path";
 
 const config = {
-    version: (ATLAS?.version ?? 0) + 1,
+    version: (JSON.parse(readFileSync(join('./', "atlas.json"), { encoding: "utf-8"}))?.version ?? 0) + 1,
     generated_at: new Date().toISOString(),
     nodes: {},
 };
