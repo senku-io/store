@@ -59,7 +59,6 @@ jobs:
           --base develop \
           --reviewer joyalgeorgekj \
           --label chore \
-          --assignee joyalgeorgekj
           --head $BRANCH || echo "PR may already exist"
         env:
           GH_TOKEN: ${{ github.token }}
