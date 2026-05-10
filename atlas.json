@@ -1,6 +1,6 @@
 {
-    "version": 3,
-    "generated_at": "2026-05-03T03:35:36.803Z",
+    "version": 0,
+    "generated_at": "2026-05-10T03:38:22.599Z",
     "nodes": {
         "coal": {
             "path": "recipes/coal.md",
