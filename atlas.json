@@ -1,9 +1,9 @@
 {
-    "version": 0,
-    "generated_at": "2026-05-10T03:38:22.599Z",
+    "version": 1,
+    "generated_at": "2026-05-17T03:47:15.274Z",
     "nodes": {
-        "coal": {
-            "path": "recipes/coal.md",
+        "tier0-charcoal": {
+            "path": "recipes/tier0/charcoal.md",
             "name": "coal",
             "type": "material",
             "keywords": [
