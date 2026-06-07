@@ -43,7 +43,7 @@ jobs:
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
           git switch -c $BRANCH
-          git pull
+          git pull origin $BRANCH || echo "branch dont exist"
 
           git add atlas.json
 
