@@ -43,6 +43,7 @@ jobs:
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
           git switch -c $BRANCH
+          git pull
 
           git add atlas.json
 
