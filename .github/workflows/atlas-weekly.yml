@@ -59,6 +59,6 @@ jobs:
           --base develop \
           --reviewer joyalgeorgekj \
           --label chore \
-          --head $BRANCH || echo "PR may already exist"
+          --head $BRANCH;gh pr merge $BRANCH --auto --merge || echo "PR may already exist"
         env:
           GH_TOKEN: ${{ github.token }}
