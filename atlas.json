@@ -1,6 +1,6 @@
 {
-    "version": 3,
-    "generated_at": "2026-05-31T04:09:39.982Z",
+    "version": 4,
+    "generated_at": "2026-06-07T17:07:27.550Z",
     "nodes": {
         "tier0-charcoal": {
             "path": "recipes/tier0/charcoal.md",
