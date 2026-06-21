@@ -1,6 +1,6 @@
 {
-    "version": 6,
-    "generated_at": "2026-06-14T04:23:58.186Z",
+    "version": 7,
+    "generated_at": "2026-06-21T04:41:56.510Z",
     "nodes": {
         "tier0-charcoal": {
             "path": "recipes/tier0/charcoal.md",
@@ -10,6 +10,18 @@
                 "coal",
                 "charcoal",
                 "carbon"
+            ]
+        },
+        "tier0-fire": {
+            "path": "recipes/tier0/fire.md",
+            "name": "fire",
+            "type": "energy",
+            "keywords": [
+                "fire",
+                "flame",
+                "heat",
+                "ignition",
+                "combustion"
             ]
         }
     }
